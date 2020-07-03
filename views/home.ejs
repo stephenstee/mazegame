@@ -1,0 +1,51 @@
+<%- include("partials/header")%>
+<style type="text/css">
+		body{
+			background: #FF416C;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+		}
+		div{
+			text-align: center;
+			margin: 100px auto;
+			font-size: 40px;
+		}
+		#link{
+			transition-property: all;
+			transition-duration: 0.5s;
+			transition-timing-function: linear;
+              
+		}
+		a:hover{
+		color: black;
+		}
+	#box{
+		margin:0 auto;
+		text-transform:uppercase;
+		text-shadow: 3px 3px 6px red;
+			font-size: 50px;
+		font-weight:normal;
+	}
+	
+	</style>
+	<div id="box"> 
+	<%player.forEach(function(data){%>
+	<%if(currentUser._id.equals(data.author.id)){%>
+		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+</svg>
+		<h3><%=data.name%></h3>
+	<a href="/home/<%=data._id%>" class="btn btn-sm btn-light">view profile</a>
+	
+	<%}%>
+	<%})%>
+
+</div>
+		
+	<div>
+		<h1>MAZE RUNNER</h1>
+     <a href="/home/game" id="link"><i class="fa fa-play" aria-hidden="true"></i></a></div>
+	
+<%- include("partials/footer")%>	
+	

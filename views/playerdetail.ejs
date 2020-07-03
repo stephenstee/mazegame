@@ -1,0 +1,46 @@
+<%- include("partials/header")%>
+<style>
+	.container{
+		border: 3px inset black;
+		
+	}
+	#box{
+		margin: 0 auto;
+		text-align: center;
+		font-size: 40px;
+		font-weight:normal;
+		list-style-type: none;
+		
+	}
+</style>
+<div class="container bg-light">
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<h1 class="text-center text-uppercase mt-2">
+				Player's Details
+			</h1>
+			<hr>
+			<%var x = 0;%>
+			<%var y = 0;%>
+		<%player.forEach(function(data){ %>
+			<% y ++%>
+			
+	<ul id="box" >
+		<li class="float-left"><%=y%>.</li>
+		<li>Name: <%= data.name%></li>
+		<li>Age: <%=data.age%></li>
+		<li>Gender: <%=data.gender%></li>
+   </ul>
+			<hr>
+			<%x++%>
+<%})%>
+		</div>
+	</div>
+</div>
+<div style="font-size:30px; font-weight: normal;">
+<p class="text-center text-uppercase mt-4">
+	No.of.players <%=x%>
+</p>
+</div>
+
+<%- include("partials/footer")%>
