@@ -178,7 +178,13 @@ app.get("/register",function(req,res){
 })
 
 app.post("/register",function(req,res){
-	User.register(new User({username: req.body.username, email: req.body.email}), req.body.password, function(err,user){
+	// eval(require('locus'))
+	var newUser = new User({username: req.body.username, email: req.body.email})
+	if(req.body.secretcode === "secretcode"){
+		newUser.isAdmin = true;
+		// res.redirect("/home/admin");
+	}
+	User.register(newUser , req.body.password, function(err,user){
 		if(err){
 			console.log("error");
 			return res.render("register");
@@ -202,6 +208,9 @@ app.post("/login",passport.authenticate("local",{
 	
 }),function(req,res){	
 });
+   
+   
+
 
 app.get("/logout",function(req,res){
 	req.logout();
