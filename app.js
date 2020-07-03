@@ -8,7 +8,8 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var methodOverride = require("method-override");
 var User = require("./models/user")
 
-mongoose.connect("mongodb://localhost/maze",{useNewUrlParser: true, useUnifiedTopology: true});
+// mongoose.connect("mongodb://localhost/maze",{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://sarfaraaz:sarfu@cluster0-ucije.mongodb.net/<dbname>?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true});
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"))
